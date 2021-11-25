@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2012 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+aal_mode:
+    AAL_MODE_PERFORMANCE = 0;
+    AAL_MODE_BALANCE = 1;
+    AAL_MODE_LOWPOWER = 2;
+
+component:
+    Package: com.foo
+    Activity: com.foo/.Blah
+
+backlight Level: 0~255 (Default : 128)
+-->
+<ams_aal>
+<!-- jiangtingyu start -->
+<!-- AAL_MODE_PERFORMANCE -->
+    <config aal_mode="0" component="default" backlight="128"/>
+
+<!-- AAL_MODE_BALANCE -->
+    <config aal_mode="1" component="default" backlight="255"/>
+    <config aal_mode="1" component="com.tplink.tpcompass/.CompassActivity" backlight="192"/>
+
+<!-- AAL_MODE_LOWPOWER -->
+    <config aal_mode="2" component="default" backlight="255"/>
+    <config aal_mode="2" component="com.cyanogenmod.trebuchet/com.android.launcher3.PowerSavingLauncher" backlight="192"/>
+<!-- jiangtingyu end -->
+</ams_aal>
+

@@ -1,0 +1,31 @@
+import meta_init.c2k.rc
+
+on post-fs
+#INTERNAL_START
+
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+on boot
+
+
+
+service spm_script /vendor/bin/spm_loader
+    user root
+    group root
+    oneshot
+
+# [zhaoyue start]
+# reset phone to factory setting
+on property:persist.sys.factory.reset=true
+    start factory_reset
+
+service factory_reset /system/bin/factory_reset.sh
+    user root
+    group root
+    disabled
+    oneshot
+# [zhaoyue end]
+
+#INTERNAL_END

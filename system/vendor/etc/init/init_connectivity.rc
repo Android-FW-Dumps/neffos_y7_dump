@@ -1,0 +1,41 @@
+# MTK connectivity .rc configure
+
+on boot
+
+#[lixiangkui start] Update BT Firmware
+on property:vold.decrypt=trigger_restart_framework
+    start wmt_loader
+
+# WMT
+service wmt_loader /vendor/bin/wmt_loader
+    #class core
+    user root
+    group root
+    oneshot
+
+on property:vold.decrypt=trigger_restart_framework
+    start wmt_launcher
+
+service wmt_launcher /vendor/bin/wmt_launcher -p /vendor/firmware/
+    user system
+    group system
+    #class core
+    oneshot
+#[lixiangkui end]
+
+on property:persist.mtk.wcn.coredump.mode=2
+    start stp_dump
+
+on property:init.svc.stp_dump=running && property:persist.mtk.wcn.coredump.mode=0
+    stop stp_dump
+
+on property:service.wcn.driver.ready=yes && property:persist.mtk.wcn.coredump.mode=*
+    write /proc/driver/wmt_dbg "0x15 ${persist.mtk.wcn.coredump.mode}"
+
+service stp_dump /vendor/bin/stp_dump3
+    user system
+    group system sdcard_rw misc
+    class core
+    disabled
+    oneshot
+

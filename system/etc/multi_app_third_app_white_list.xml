@@ -1,0 +1,13 @@
+<multiapp-whitelist>
+    <pkg name="com.tencent.mm"/>
+    <pkg name="com.facebook.katana"/>
+    <pkg name="com.facebook.orca"/>
+    <pkg name="com.whatsapp"/>
+    <pkg name="com.twitter.android"/>
+    <pkg name="com.facebook.lite"/>
+    <pkg name="com.instagram.android"/>
+    <pkg name="com.viber.voip"/>
+    <pkg name="com.vkontakte.android"/>
+    <pkg name="com.imo.android.imoim"/>
+    <pkg name="com.skype.raider"/>
+</multiapp-whitelist>

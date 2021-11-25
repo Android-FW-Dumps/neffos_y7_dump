@@ -1,0 +1,8 @@
+<configs>
+    <config name="update_config_enableUserExpPro" value="true"/> <!--[liurui]-->
+    <config name="update_config_enableTPFullScreenGesture" value="true"/>
+    <config name="update_config_MaxAspectRatio" value="2.1f"/>
+    <config name="update_config_enableLongScreenShot" value="true"/>
+    <config name="update_config_fixUriPackageList" value="com.whatsapp,com.vkontakte.android"/>
+    <config name="update_config_fixUriAuthorityList" value="com.whatsapp.provider.media,com.vk.common.VKFileProvider"/>
+</configs>

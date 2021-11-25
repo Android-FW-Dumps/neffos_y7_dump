@@ -1,0 +1,43 @@
+on post-fs
+	chmod 0666 /dev/rsee0
+    chown system system /dev/rsee0
+    chmod 0660 /dev/rseepriv0
+    chown system system /dev/rseepriv0
+    chmod 0660 /dev/emmcrpmb0
+    chown system system /dev/emmcrpmb0
+    start rsee_daemon
+
+service rsee_daemon /vendor/bin/rsee_daemon
+    class core
+    user system
+    group system inet net_admin net_raw
+#	disabled
+
+on post-fs-data
+
+    setprop keymaster.crypted 1
+    mkdir /data/tee
+    mkdir /data/local
+    mkdir /data/local/sec_modules
+    chmod 0755 /data/tee
+    chown system system /data/tee
+    chmod 0755 /data/local/sec_modules
+    chown system system /data/local/sec_modules
+
+
+service rsee_rpmb_probe /vendor/bin/rsee_rpmb_probe
+    class late_start
+    user system
+    group system
+	oneshot
+
+
+on boot
+    start rseeserver
+
+service rseeserver /vendor/bin/rseeserver
+    class main
+    user system
+    group system
+#        disabled
+

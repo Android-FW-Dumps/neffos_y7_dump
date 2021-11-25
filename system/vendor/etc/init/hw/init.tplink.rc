@@ -1,0 +1,8 @@
+
+#on property:ro.boot.is_ru=true
+#    setprop ro.product.name "TP910A_RU"
+#    setprop ro.product.locale "ru-RU"
+
+#on property:ro.boot.is_ru=false
+#    setprop ro.product.name "TP910A"
+#    setprop ro.product.locale "en-US"

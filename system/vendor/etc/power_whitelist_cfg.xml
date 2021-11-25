@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<WHITELIST>
+    <PerfService>
+        <Package name="com.imangi.templerun2">
+        	<Activity name="Common">            
+            	<CMD_SET_CLUSTER_CPU_CORE_MIN Param1="0" Param2="3"/>
+            </Activity>
+        </Package>
+        <Package name="com.tencent.tmgp.sgame">
+            <Activity name="Common">
+                <CMD_SET_CLUSTER_CPU_CORE_MIN Param1="0" Param2="2"/>
+                <CMD_SET_CLUSTER_CPU_FREQ_MIN Param1="0" Param2="1950000"/>
+                <CMD_SET_CLUSTER_CPU_CORE_MIN Param1="1" Param2="2"/>
+                <CMD_SET_CLUSTER_CPU_FREQ_MIN Param1="1" Param2="1950000"/>
+                <CMD_SET_HPS_UP_THRESHOLD Param1="60"/>
+                <CMD_SET_HPS_DOWN_THRESHOLD Param1="50"/>
+                <CMD_SET_PPM_HICA_VAR Param1="0"/>
+            </Activity>
+        </Package>
+        <Package name="com.tencent.tmgp.sgamece">
+            <Activity name="Common">
+                <CMD_SET_CLUSTER_CPU_CORE_MIN Param1="0" Param2="2"/>
+                <CMD_SET_CLUSTER_CPU_FREQ_MIN Param1="0" Param2="1950000"/>
+                <CMD_SET_CLUSTER_CPU_CORE_MIN Param1="1" Param2="2"/>
+                <CMD_SET_CLUSTER_CPU_FREQ_MIN Param1="1" Param2="1950000"/>
+                <CMD_SET_HPS_UP_THRESHOLD Param1="60"/>
+                <CMD_SET_HPS_DOWN_THRESHOLD Param1="50"/>
+                <CMD_SET_PPM_HICA_VAR Param1="0"/>
+            </Activity>
+        </Package>
+        <Package name="com.futuremark.pcmark.android.benchmark">
+            <Activity name="Common">
+                <CMD_SET_GPU_FREQ_MIN Param1="30"/>
+                <CMD_SET_CLUSTER_CPU_CORE_MIN Param1="0" Param2="0"/>
+                <CMD_SET_CLUSTER_CPU_CORE_MIN Param1="1" Param2="4"/>
+                <CMD_SET_CLUSTER_CPU_FREQ_MIN Param1="1" Param2="1950000"/>
+            </Activity>
+        </Package>
+    </PerfService>    
+</WHITELIST>

@@ -1,0 +1,5 @@
+<configs>
+    <config name="update_config_enableAppLock" value="true"/>
+    <config name="update_config_appLock_list" value=""/>
+    <config name="update_config_enable_face_unlock" value="true"/>
+</configs>

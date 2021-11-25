@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permission-whitelist version="1">
+    <application>
+        <!-- Note this!
+         attribute:
+           1. name: packagename.
+           2. type: optional parameters. "system-app" - system app,
+              "platform-app"- system app and signed by platform
+           3. signature: optional parameters. public key to signed apk
+         example:
+         1. granted all runtime permissions to system app with packagename "com.android.test"
+            <pkg name="com.android.test" type="system-app" />
+         2. granted all runtime permissions to platform app with packagename "com.android.test"
+            <pkg name="com.android.test" type="platform-app" />
+         3. granted all runtime permissions to app with packagename "com.android.test"
+            <pkg name="com.android.test"/>
+         4. granted all runtime permissions to app with packagename "com.android.test"
+            and public key "12345"
+            <pkg name="com.android.test" signature="12345"/>
+        -->
+
+        <!-- qcom app -->
+        <pkg name="com.qti.backupagent" type="system-app" />
+        <pkg name="com.wdstechnology.android.kryten" type="system-app" />
+        <pkg name="com.qrd.omadownload" type="system-app" />
+        <pkg name="com.oma.drm" type="system-app" />
+
+        <!-- huaqin app -->
+        <pkg name="com.fineos.gallery3d" type="system-app" />
+        <pkg name="com.fineos.camera" type="system-app" />
+        <pkg name="com.fineos.filtershow" type="system-app" />
+
+        <!-- fota app -->
+        <pkg name="com.adups.fota" type="system-app"
+            signature="3082037130820259a003020102020475c922a3300d06092a864886f70d01010b05003068310b30090603550406130238363111300f060355040813087368616e67686169310f300d060355040713067075646f6e67310e300c060355040a13056164757073310e300c060355040b13056164757073311530130603550403130c7777772e61647570732e636e3020170d3135303731363132313134355a180f32303730303431383132313134355a3068310b30090603550406130238363111300f060355040813087368616e67686169310f300d060355040713067075646f6e67310e300c060355040a13056164757073310e300c060355040b13056164757073311530130603550403130c7777772e61647570732e636e30820122300d06092a864886f70d01010105000382010f003082010a028201010085e7180c91e69fedc2a271082a2428b2644e0a18a23ee3b07a90d679166bdaae4c50c951e3b0f82fd7ede7d64d20cdf795bc7128b51e51d39c950b0d47a07c6e0ae1b8d1f862a14df14c2716af3788ed6c3fb38854344535b1763be0ab160c1748abea7080d8e4fc4f18efb88709cf3d57cef2d311f639f492e328f264fc839faa8dc94923cac2b9ada46e03155bfbca4309db58634b6b89bf5dc63e2c585b77ca1af802a8104bceae9b00224f1b46fa540e98cd7a3338a6bb1e5ed941ecac46d0240adc690289722242c839503a678ea9e6dacbb190cd5427a23f304560714594c4527aaca1d6e71047fbc2a1710368dca81339f6b953ed038f1f15c0e0d9990203010001a321301f301d0603551d0e0416041418275eba94e2b45d8dea83e116381a8d09c2b7d9300d06092a864886f70d01010b050003820101005f56943ffb866fe09f5b8b2e796be88342c1e8587bb406a20bc700c4b9ddb888c37554e0892f58fa1376344fff9a4e9b276aa3031aa7a6c76a8d28883f190ae0caeaafa902ea3291cb02b5fe20df3bbb54fe833ca9087fff1ef10abaa577bb589b1799ad54aa6654d82c088e159491e11df27924a4250b9fb6f14d606bc56f688dd366214a86dd4ab24f0ff1eb3dba3e47b6c66a920997382bb09ca2d7cfb5ff79214a68d29b2112af5b26a145c9fbadbe990061120094d3a37b611326ce89802b0d0aa28022e3a547777e0b1aab32b516ab0bfcee829d35d7a771f52348eebdf79d2d8af8edee3694662425539744b6a22110665c624574c37ce4bba48b49c4" />
+        <pkg name="com.adups.fota.sysoper" type="system-app" />
+
+        <!-- android app -->
+        <pkg name="com.android.dreams.phototable" type="system-app" />
+        <pkg name="com.android.htmlviewer" type="system-app" />
+        <pkg name="com.example.android.notepad" type="system-app" />
+        <pkg name="com.android.calendar" type="system-app" />
+
+        <!-- mediatek app -->
+        <pkg name="com.mediatek.omacp" type="system-app" />
+
+        <!-- tp-link app -->
+        <pkg name="com.tplink.weather" type="system-app" />
+        <pkg name="com.tplink.flashlight" type="system-app" />
+        <pkg name="com.tplink.bugreport" type="system-app" />
+        <pkg name="com.tplink.debugreport"/>
+        <pkg name="com.tplink.filemanager" type="system-app" />
+        <pkg name="com.android.gallery3d" type="system-app" />
+        <pkg name="com.tplink.tpsoundrecorder"/>
+        <pkg name="com.tplink.tpcompass"/>
+        <pkg name="com.tplink.tpsetupwizard"/>
+        <pkg name="com.tplink.backuprestore"/>
+        <pkg name="com.tplink.camera" type="system-app" />
+        <pkg name="com.tplink.tpnotes" type="system-app" />
+        <pkg name="com.tplink.video" type="system-app" />
+        <pkg name="com.tplink.music" type="system-app" />
+        <pkg name="com.android.dialer" type="system-app" />
+        <pkg name="com.tplink.tpclock" type="system-app" />
+        <pkg name="com.android.contacts" type="system-app" />
+        <pkg name="com.android.messaging" type="system-app" />
+        <pkg name="com.android.fmradio" type="system-app" />
+        <pkg name="com.tplink.theme" type="system-app" />
+        <pkg name="com.google.android.inputmethod.latin" type="system-app" />
+        <pkg name="com.android.documentsui" type="system-app" />
+        <pkg name="com.tplink.gallery" type="system-app" />
+        <pkg name="com.tplink.tpstorage" type="system-app" />
+        <pkg name="com.tplink.tpwlan" type="system-app" />
+        <pkg name="com.tplink.graffiti" type="system-app" />
+        <pkg name="com.tplink.tpbackup" type="system-app" />
+        <pkg name="com.cyanogenmod.trebuchet" type="platform-app" />
+
+        <!-- baidu map added by liurui-->
+        <pkg name="com.baidu.map.location" />
+
+        <!-- added for test input method dialog by liurui temporarily-->
+        <pkg name="com.google.android.youtube" />
+        <pkg name="com.google.android.ext.services" />
+        <pkg name="com.google.android.googlequicksearchbox" />
+        <pkg name="com.google.android.onetimeinitializer" />
+        <pkg name="com.google.android.ext.shared" />
+        <pkg name="com.google.android.apps.enterprise.dmagent" />
+        <pkg name="com.google.android.configupdater" />
+        <pkg name="com.google.android.marvin.talkback" />
+        <pkg name="com.google.android.gm" />
+        <pkg name="com.google.android.apps.tachyon" />
+        <pkg name="com.google.android.setupwizard" />
+        <pkg name="com.google.android.music" />
+        <pkg name="com.google.android.launcher.layouts.gms" />
+        <pkg name="com.google.android.apps.docs" />
+        <pkg name="com.google.android.apps.maps" />
+        <pkg name="com.google.android.webview" />
+        <pkg name="com.google.android.syncadapters.contacts" />
+        <pkg name="com.google.android.packageinstaller" />
+        <pkg name="com.google.android.gms" />
+        <pkg name="com.google.android.gsf" />
+        <pkg name="com.google.android.tts" />
+        <pkg name="com.google.android.partnersetup" />
+        <pkg name="com.google.android.videos" />
+        <pkg name="com.google.android.feedback" />
+        <pkg name="com.google.android.printservice.recommendation" />
+        <pkg name="com.google.android.apps.photos" />
+        <pkg name="com.google.android.calendar" />
+        <pkg name="com.google.android.gsf.login" />
+        <pkg name="com.google.android.backuptransport" />
+        <pkg name="com.google.android.inputmethod.pinyin" />
+        <pkg name="com.google.android.inputmethod.latin" />
+
+        <!-- [lixiaolong add] -->
+        <pkg name="com.emoji.keyboard.touchpal" type="system-app">
+            <exclude-permission name="android.permission.READ_SMS" />
+            <exclude-permission name="android.permission.READ_PHONE_STATE" />
+        </pkg>
+        <pkg name="com.cootek.smartinputv5.skin.keyboard_theme_tp_link_custom" type="system-app" />
+    </application>
+</permission-whitelist>

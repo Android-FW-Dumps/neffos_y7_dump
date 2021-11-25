@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<spnOverrides version="1">
+<!-- Taiwan -->
+<spnOverride numeric="46601" spn="FarEasTone" />
+</spnOverrides>

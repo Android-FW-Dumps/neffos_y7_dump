@@ -1,0 +1,9 @@
+20180801
+com.baidu.map.location
+com.tencent.mm
+com.tencent.mobileqq
+com.tplink.backupandrestore
+com.tplink.fota
+com.tplink.provider.stat
+com.tplink.update
+com.tplink.weather

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <btFeature version="0.0">
+        <threshold>4000000</threshold>
+        <isBtWifi>false</isBtWifi>
+    </btFeature>
+</resources>

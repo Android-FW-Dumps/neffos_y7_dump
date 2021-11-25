@@ -1,0 +1,171 @@
+# MTK project .rc configure
+
+import init.c2k.rc
+# [liguanxiong start] import tplink defined init rc
+import /vendor/etc/init/hw/init.tplink.rc
+# [liguanxiong start]
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+on post-fs-data
+
+
+
+
+
+
+
+
+
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+
+
+
+#    chmod 0660 /dev/spm
+#    chown system system /dev/spm
+
+# [zhangdong start]
+    chown system system /sys/devices/platform/battery/Charging_ScreenState
+    chmod 0664 /sys/devices/platform/battery/Charging_ScreenState
+# [zhangdong end]
+
+
+# [wuzhe start] add for exhibition mode support
+    chown system system /sys/bus/platform/devices/battery/exhibition_mode
+    chmod 0666 /sys/bus/platform/devices/battery/exhibition_mode
+# [wuzhe end]
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+# [fengyunliang start]
+on property:sys.gsensor.calibrate.control=1
+    start gsensor_cali
+service gsensor_cali /system/bin/sensorcali -A
+    disabled
+    oneshot
+
+on property:sys.gyroscope.calibrate.control=1
+    start gyroscope_cali
+service gyroscope_cali /system/bin/sensorcali -G
+    disabled
+    oneshot
+# [fengyunliang end]
+
+# [zhaoyue start]
+on property:sys.nvtool.start=true
+    setprop sys.nvtool.start false
+    start nvtool
+
+service nvtool /system/bin/nvtool
+    user root
+    disabled
+    oneshot
+
+on property:sys.factory_control.start=true
+    setprop sys.factory_control.start false
+    start factory_control
+
+service factory_control /system/bin/factory_control.sh
+    user root
+    disabled
+    oneshot
+# [zhaoyue end]
+
+# [tanghonghui start] Support camera snapshot when screenoff
+on property:persist.tplink.snapshot=true
+    write /sys/bus/platform/drivers/mtk-kpd/kpd_snapshot_state "1"
+
+on property:persist.tplink.snapshot=false
+    write /sys/bus/platform/drivers/mtk-kpd/kpd_snapshot_state "0"
+# [tanghonghui end]
+
+# [tanghonghui start]
+# for shutdown the double_tap function in call
+on property:sys.double_tap.disable4call=true
+    write /proc/touchpanel/double_tap_enable "0"
+
+# [Yang Yubin start] Add for battery temperature protect
+on property:sys.btp.control=true
+    write /sys/devices/platform/tpcharger/Batt_Temp_Protect 1
+on property:sys.btp.control=false
+    write /sys/devices/platform/tpcharger/Batt_Temp_Protect 0
+# [Yang Yubin end]
+
+on property:sys.double_tap.disable4call=false
+    write /proc/touchpanel/double_tap_enable "1"
+
+# for incall
+on property:sys.proximity.incall.close=true
+    write /proc/touchpanel/psensor_incall_disable_tp "1"
+
+on property:sys.proximity.incall.close=false
+    write /proc/touchpanel/psensor_incall_disable_tp "0"
+# [tanghonghui end]
+
+# [zhangdong start] Add for Runin battery test
+on property:sys.charging_mode.control=true
+    write /sys/devices/platform/tpcharger/Charging_Mode 1
+on property:sys.charging_mode.control=false
+    write /sys/devices/platform/tpcharger/Charging_Mode 0
+# [zhangdong end]
+
+# [zhangdong start] Screen and call state control charging current
+on property:thermal.screen_charging=true
+    write /sys/devices/platform/battery/Charging_ScreenState "1"
+
+on property:thermal.screen_charging=false
+    write /sys/devices/platform/battery/Charging_ScreenState "0"
+
+on property:thermal.call_charging=true
+    write /sys/devices/platform/battery/Charging_CallState "1"
+
+on property:thermal.call_charging=false
+    write /sys/devices/platform/battery/Charging_CallState "0"
+# [zhangdong end]
+
+# [wuzhe start]
+on property:persist.exhibition_mode=0
+    write /sys/bus/platform/devices/battery/exhibition_mode 0
+on property:persist.exhibition_mode=1
+    write /sys/bus/platform/devices/battery/exhibition_mode 1
+# [wuzhe end]
