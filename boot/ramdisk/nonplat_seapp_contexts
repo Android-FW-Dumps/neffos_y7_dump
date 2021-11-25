@@ -1,0 +1,4 @@
+user=_app seinfo=platform name=com.mediatek.mtklogger.proxy domain=vendor_app type=app_data_file levelFrom=user
+user=_app seinfo=platform name=com.gd.mobicore.pa domain=mobicore_app type=app_data_file levelFrom=user
+user=_app seinfo=platform name=com.trustonic.tuiservice domain=mobicore_app type=app_data_file levelFrom=user
+user=_app seinfo=platform name=com.swfp.factory domain=platform_app type=app_data_file levelFrom=user

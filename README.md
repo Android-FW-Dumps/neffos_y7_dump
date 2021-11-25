@@ -1,0 +1,14 @@
+# full_k50v1_64-user 8.1.0 O11019 1265 release-keys
+- manufacturer: tp-link
+- platform: mt6750
+- codename: Y7
+- flavor: full_k50v1_64-user
+- release: 8.1.0
+- id: O11019
+- incremental: 1265
+- tags: release-keys
+- fingerprint: Neffos/TP910A/Y7:8.1.0/O11019/1265:user/release-keys
+- is_ab: false
+- brand: Neffos
+- branch: full_k50v1_64-user-8.1.0-O11019-1265-release-keys
+- repo: neffos_y7_dump
